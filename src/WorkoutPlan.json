@@ -1,0 +1,88 @@
+{
+  "name": "WorkoutPlan",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string",
+      "description": "Email of the user who created this plan"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the workout plan"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the workout plan"
+    },
+    "workout_type": {
+      "type": "string",
+      "enum": [
+        "strength",
+        "cardio",
+        "yoga",
+        "hiit",
+        "flexibility",
+        "full_body",
+        "custom"
+      ],
+      "description": "Type of workout"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "description": "Difficulty level"
+    },
+    "duration_minutes": {
+      "type": "number",
+      "description": "Estimated total duration in minutes"
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "sets": {
+            "type": "number"
+          },
+          "reps": {
+            "type": "number"
+          },
+          "duration_seconds": {
+            "type": "number"
+          },
+          "rest_seconds": {
+            "type": "number"
+          },
+          "instructions": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "List of exercises in the plan"
+    },
+    "is_template": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this is a template for recurring schedules"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags for categorization"
+    }
+  },
+  "required": [
+    "user_email",
+    "name",
+    "exercises"
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "name": "ScheduledWorkout",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string",
+      "description": "Email of the user"
+    },
+    "workout_id": {
+      "type": "string",
+      "description": "ID of the workout (from Workout or WorkoutPlan entity)"
+    },
+    "workout_name": {
+      "type": "string",
+      "description": "Name of the workout"
+    },
+    "workout_type": {
+      "type": "string",
+      "description": "Type of workout"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "library",
+        "custom_plan"
+      ],
+      "description": "Whether from library or custom plan"
+    },
+    "scheduled_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the workout is scheduled for"
+    },
+    "scheduled_time": {
+      "type": "string",
+      "description": "Time of day (e.g., '09:00', '18:30')"
+    },
+    "duration_minutes": {
+      "type": "number",
+      "description": "Expected duration"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "scheduled",
+        "completed",
+        "skipped",
+        "rescheduled"
+      ],
+      "default": "scheduled",
+      "description": "Status of the scheduled workout"
+    },
+    "recurrence_pattern": {
+      "type": "string",
+      "enum": [
+        "none",
+        "daily",
+        "weekly",
+        "monthly"
+      ],
+      "default": "none",
+      "description": "Recurrence pattern"
+    },
+    "recurrence_days": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday",
+          "saturday",
+          "sunday"
+        ]
+      },
+      "description": "Days of the week for weekly recurrence"
+    },
+    "recurrence_end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "End date for recurrence"
+    },
+    "notes": {
+      "type": "string",
+      "description": "User notes or reminders"
+    },
+    "reminder_enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to send reminders"
+    },
+    "completed_session_id": {
+      "type": "string",
+      "description": "ID of completed workout session if status is completed"
+    }
+  },
+  "required": [
+    "user_email",
+    "workout_id",
+    "workout_name",
+    "scheduled_date"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "name": "WorkoutSession",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string",
+      "description": "Email of user who completed the workout"
+    },
+    "workout_id": {
+      "type": "string",
+      "description": "ID of the workout template"
+    },
+    "workout_name": {
+      "type": "string",
+      "description": "Name of the workout"
+    },
+    "workout_type": {
+      "type": "string",
+      "description": "Type of workout"
+    },
+    "duration_minutes": {
+      "type": "number",
+      "description": "Actual duration in minutes"
+    },
+    "calories_burned": {
+      "type": "number",
+      "description": "Estimated calories burned"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the workout was completed"
+    },
+    "exercises_completed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "sets_completed": {
+            "type": "number"
+          },
+          "reps_completed": {
+            "type": "number"
+          }
+        }
+      },
+      "description": "Exercises completed in this session"
+    },
+    "notes": {
+      "type": "string",
+      "description": "User notes about the workout"
+    },
+    "rating": {
+      "type": "number",
+      "description": "User rating 1-5"
+    }
+  },
+  "required": [
+    "user_email",
+    "workout_id",
+    "workout_name",
+    "completed_date"
+  ]
+}

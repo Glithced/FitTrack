@@ -1,0 +1,87 @@
+{
+  "name": "Workout",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the workout"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of the workout"
+    },
+    "workout_type": {
+      "type": "string",
+      "enum": [
+        "strength",
+        "cardio",
+        "yoga",
+        "hiit",
+        "flexibility",
+        "full_body"
+      ],
+      "description": "Type of workout"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "description": "Difficulty level"
+    },
+    "duration_minutes": {
+      "type": "number",
+      "description": "Expected duration in minutes"
+    },
+    "equipment": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Required equipment"
+    },
+    "calories_estimate": {
+      "type": "number",
+      "description": "Estimated calories burned"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Image URL for the workout"
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "sets": {
+            "type": "number"
+          },
+          "reps": {
+            "type": "number"
+          },
+          "duration_seconds": {
+            "type": "number"
+          },
+          "rest_seconds": {
+            "type": "number"
+          },
+          "instructions": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "List of exercises in the workout"
+    }
+  },
+  "required": [
+    "name",
+    "workout_type",
+    "difficulty",
+    "duration_minutes"
+  ]
+}

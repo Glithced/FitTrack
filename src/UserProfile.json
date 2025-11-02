@@ -1,0 +1,68 @@
+{
+  "name": "UserProfile",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string",
+      "description": "Email of the user this profile belongs to"
+    },
+    "fitness_level": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "default": "beginner",
+      "description": "Current fitness level"
+    },
+    "goals": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "lose_weight",
+          "build_muscle",
+          "improve_endurance",
+          "flexibility",
+          "general_fitness"
+        ]
+      },
+      "description": "Fitness goals"
+    },
+    "weekly_target": {
+      "type": "number",
+      "default": 3,
+      "description": "Target workouts per week"
+    },
+    "preferred_workout_time": {
+      "type": "string",
+      "description": "Preferred time of day for workouts"
+    },
+    "current_streak": {
+      "type": "number",
+      "default": 0,
+      "description": "Current workout streak in days"
+    },
+    "longest_streak": {
+      "type": "number",
+      "default": 0,
+      "description": "Longest workout streak achieved"
+    },
+    "total_workouts": {
+      "type": "number",
+      "default": 0,
+      "description": "Total workouts completed"
+    },
+    "badges_earned": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Achievement badges earned"
+    }
+  },
+  "required": [
+    "user_email"
+  ]
+}
